@@ -17,6 +17,7 @@ const val TYPE_HEADER = 0
 const val TYPE_ITEM = 1
 
 class UserAdapter(val users: List<User>): RecyclerView.Adapter<RecyclerView.ViewHolder>(), StickyHeaderItemDecoration.StickyHeaderInterface  {
+
     override fun isHeader(itemPosition: Int): Boolean {
         return users[itemPosition].header
     }
@@ -34,8 +35,8 @@ class UserAdapter(val users: List<User>): RecyclerView.Adapter<RecyclerView.View
         var headerPosition = 0
         var position = itemPosition
         do {
-            if (this.isHeader(itemPosition)) {
-                headerPosition = itemPosition
+            if (this.isHeader(position)) {
+                headerPosition = position
                 break
             }
             position -= 1
